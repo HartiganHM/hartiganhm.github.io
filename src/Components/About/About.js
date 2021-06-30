@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CircleLoader } from '@f-design/component-library';
 import classNames from 'classnames';
 import { Document, Page, pdfjs } from 'react-pdf';
 import is from 'is_js';
@@ -6,7 +7,6 @@ import is from 'is_js';
 pdfjs.GlobalWorkerOptions.workerSrc =
   `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-import Loader from '../Loader/Loader';
 import copyContent from '../../copy/copyContent';
 import svgPaths from '../../copy/svgPaths';
 
@@ -150,7 +150,7 @@ const About = () => {
           <Document
             file="/assets/images/Hugh-Hartigan-Resume.pdf"
             className={resumeClassNames}
-            loading={<Loader />}
+            loading={<CircleLoader />}
           >
             <Page pageNumber={1} width={getResumeSize()} />
           </Document>
