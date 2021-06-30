@@ -1,25 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.40a56333.chunk.css",
-    "main.js": "/static/js/main.8fa75d3f.chunk.js",
-    "main.js.map": "/static/js/main.8fa75d3f.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6047a2cb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6047a2cb.js.map",
-    "static/js/2.192bd9b9.chunk.js": "/static/js/2.192bd9b9.chunk.js",
-    "static/js/2.192bd9b9.chunk.js.map": "/static/js/2.192bd9b9.chunk.js.map",
+    "main.css": "/static/css/main.fc2c56f1.chunk.css",
+    "main.js": "/static/js/main.b7cd604a.chunk.js",
+    "main.js.map": "/static/js/main.b7cd604a.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6dcb8551.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6dcb8551.js.map",
+    "static/js/2.fd9b6b79.chunk.js": "/static/js/2.fd9b6b79.chunk.js",
+    "static/js/2.fd9b6b79.chunk.js.map": "/static/js/2.fd9b6b79.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.c4d55313197de3b6961f40662de6d7a0.js": "/precache-manifest.c4d55313197de3b6961f40662de6d7a0.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.40a56333.chunk.css.map": "/static/css/main.40a56333.chunk.css.map",
-    "static/media/Hugh-Hartigan-Resume.pdf": "/static/media/Hugh-Hartigan-Resume.ac2eda37.pdf",
-    "static/media/Hugh-Hartigan.jpg": "/static/media/Hugh-Hartigan.6118edda.jpg",
-    "static/media/Nav.scss": "/static/media/Wordmark-horizontal-blue.7d049145.png",
-    "static/media/LandingPage.scss": "/static/media/Wordmark.19e8a306.png",
-    "static/media/movie-tracker-screen-shot.jpg": "/static/media/movie-tracker-screen-shot.7e05f88f.jpg",
-    "static/media/open-source-blog-image.jpg": "/static/media/open-source-blog-image.2c75c807.jpg",
-    "static/media/our-planet-screen-shot.jpg": "/static/media/our-planet-screen-shot.08886c24.jpg",
-    "static/media/palette-picker-screen-shot.jpg": "/static/media/palette-picker-screen-shot.79af2bde.jpg",
-    "static/media/spirit-screen-shot.jpg": "/static/media/spirit-screen-shot.3be99835.jpg",
-    "static/media/swapi-box-screen-shot.jpg": "/static/media/swapi-box-screen-shot.2882a907.jpg"
-  }
+    "static/css/main.fc2c56f1.chunk.css.map": "/static/css/main.fc2c56f1.chunk.css.map",
+    "static/js/2.fd9b6b79.chunk.js.LICENSE.txt": "/static/js/2.fd9b6b79.chunk.js.LICENSE.txt",
+    "static/media/Hugh-Hartigan-Resume.02ad950a.pdf": "/static/media/Hugh-Hartigan-Resume.02ad950a.pdf",
+    "static/media/Hugh-Hartigan.jpg": "/static/media/Hugh-Hartigan.cda305d1.jpg",
+    "static/media/Meh-LinkedIn.01be06ca.png": "/static/media/Meh-LinkedIn.01be06ca.png",
+    "static/media/Nav.scss": "/static/media/Wordmark-horizontal-blue.732304ea.png",
+    "static/media/LandingPage.scss": "/static/media/Wordmark.1d1f4e11.png",
+    "static/media/movie-tracker-screen-shot.jpg": "/static/media/movie-tracker-screen-shot.46c00f11.jpg",
+    "static/media/open-source-blog-image.jpg": "/static/media/open-source-blog-image.7b14da86.jpg",
+    "static/media/our-planet-screen-shot.jpg": "/static/media/our-planet-screen-shot.f2cc7e19.jpg",
+    "static/media/palette-picker-screen-shot.jpg": "/static/media/palette-picker-screen-shot.1c3a34f8.jpg",
+    "static/media/spirit-screen-shot.jpg": "/static/media/spirit-screen-shot.1ddfdc6a.jpg",
+    "static/media/swapi-box-screen-shot.jpg": "/static/media/swapi-box-screen-shot.8e23076f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6dcb8551.js",
+    "static/js/2.fd9b6b79.chunk.js",
+    "static/css/main.fc2c56f1.chunk.css",
+    "static/js/main.b7cd604a.chunk.js"
+  ]
 }
