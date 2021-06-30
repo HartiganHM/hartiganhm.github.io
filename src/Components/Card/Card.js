@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { object } from 'prop-types';
+import { Accordion } from '@f-design/component-library';
 
 import './Card.scss';
 
@@ -14,8 +15,8 @@ const Card = ({
     areaOfFocus2,
     techStack,
     gitHub,
-    liveLink
-  }
+    liveLink,
+  },
 }) => {
   const [currentClass, handleToggleDetails] = useState('hidden');
 
@@ -41,17 +42,15 @@ const Card = ({
         </span>
 
         <div className={currentClass + ' content-container'}>
-          <div className="description-box">
-            <h3 className="description-header">Description</h3>
+          <Accordion title="Description">
             <p className="description">{description}</p>
             {description2 && <p className="description">{description2}</p>}
-          </div>
+          </Accordion>
 
-          <div className="area-of-focus-box">
-            <h3 className="area-of-focus-header">My Area of Focus</h3>
+          <Accordion title="Focus">
             <p className="area-of-focus">{areaOfFocus}</p>
             {areaOfFocus2 && <p className="area-of-focus">{areaOfFocus2}</p>}
-          </div>
+          </Accordion>
 
           <div className="tech-stack-box">
             <h3 className="tech-stack-header">Tech Stack</h3>
@@ -129,5 +128,5 @@ const Card = ({
 export default Card;
 
 Card.propTypes = {
-  cardData: object
+  cardData: object,
 };

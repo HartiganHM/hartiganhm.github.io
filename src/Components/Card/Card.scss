@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import '../../Styles/main.scss';
+
 .Card {
   display: flex;
   flex-direction: column;
@@ -80,7 +80,7 @@
     text-decoration: none;
     transition: 0.2s color ease-in-out;
     &:hover {
-      color: $accent-color-light;
+      color: $brand-color;
     }
   }
   .title {

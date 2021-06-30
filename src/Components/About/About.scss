@@ -1,5 +1,5 @@
-@import '../../Styles/variables.scss';
-@import '../../Styles/mixins.scss';
+@import '../../Styles/main.scss';
+
 .About {
   align-self: center;
   display: flex;
@@ -70,11 +70,11 @@
   fill: $neutral-dark;
   transition: 0.3s ease-in-out;
   &:hover {
-    fill: $accent-color-light;
+    fill: $brand-color;
     transform: translate(0, -3px);
     transition: 0.3s ease-in-out;
     + .icon-text {
-      color: $accent-color-light;
+      color: $brand-color;
     }
   }
 }
@@ -116,10 +116,10 @@
   &:hover {
     .download-arrow {
       top: 5px;
-      fill: $accent-color-light;
+      fill: $brand-color;
     }
     .download-line {
-      background-color: $accent-color-light;
+      background-color: $brand-color;
     }
   }
 }
@@ -149,7 +149,7 @@
   transition: all 0.2s;
   &:hover {
     .close-icon-line {
-      background-color: $accent-color-light;
+      background-color: $brand-color;
       &.one {
         transform: rotate(45deg);
       }

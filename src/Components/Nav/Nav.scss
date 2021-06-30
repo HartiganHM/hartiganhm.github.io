@@ -1,5 +1,4 @@
-@import '../../Styles/variables.scss';
-@import '../../Styles/mixins.scss';
+@import '../../Styles/main.scss';
 
 .nav-wrapper {
   align-self: stretch;
@@ -81,7 +80,7 @@
     height: 5px;
     width: 40px;
     margin: 3px;
-    background-color: $accent-color-light;
+    background-color: $brand-color;
     border-radius: 2px;
     transition: all 0.25s;
     &.close {
@@ -104,7 +103,7 @@
     position: absolute;
     top: 0;
     bottom: -5px;
-    background: $accent-color-dark;
+    background: $brand-dark;
     transition: all 0.5s;
   }
   .hide {
