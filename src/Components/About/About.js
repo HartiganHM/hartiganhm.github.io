@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { Document, Page } from 'react-pdf';
+import { Document, Page, pdfjs } from 'react-pdf';
 import is from 'is_js';
+
+pdfjs.GlobalWorkerOptions.workerSrc =
+  `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 import Loader from '../Loader/Loader';
 import copyContent from '../../copy/copyContent';
 import svgPaths from '../../copy/svgPaths';
 import resume from '../../images/Hugh-Hartigan-Resume.pdf';
+import profileImage from '../../images/Meh-LinkedIn.png';
+
 import './About.scss';
 
 const getResumeSize = () => {
@@ -14,9 +19,9 @@ const getResumeSize = () => {
 
   if (innerWidth > 700) {
     return 640;
-  } else {
-    return window.innerWidth - 60;
   }
+
+  return innerWidth - 60;
 };
 
 const About = () => {
@@ -35,7 +40,7 @@ const About = () => {
         <div className="top-container">
           <img
             className="profile-image"
-            src={require('../../images/Hugh-Hartigan.jpg')}
+            src={profileImage}
             alt="Hugh-Hartigan-software-developer"
           />
           <div className="profile-description-container">
@@ -55,15 +60,11 @@ const About = () => {
 
         <div className="link-wrapper">
           <div className="link-box">
-            <a
-              //TODO: Adjust once `react-pdf` is updated
-              // onClick={() => {
-              //   document.querySelector('.App').scrollTop = 0;
-              //   handleToggleResume(true);
-              // }}
-              href={resume}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => {
+                document.querySelector('.App').scrollTop = 0;
+                handleToggleResume(true);
+              }}
               className="icon-wrapper"
             >
               <svg className="icon" viewBox="0 0 512 512">
@@ -72,7 +73,7 @@ const About = () => {
                 </g>
               </svg>
               <span className="icon-text">{about.iconText1}</span>
-            </a>
+            </button>
 
             <a
               href="https://github.com/HartiganHM"
