@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import is from 'is_js';
 
 import { useStateValue } from '../StateProvider/StateProvider';
 import './Nav.scss';
@@ -14,7 +15,7 @@ const Nav = ({ isResumeShown, history: { push } }) => {
   const navMenuClasses = classNames({
     'nav-menu': true,
     show: isMenuShown,
-    hide: !isMenuShown
+    hide: !isMenuShown,
   });
 
   const navBar = pages.map((page, index) =>
@@ -27,7 +28,7 @@ const Nav = ({ isResumeShown, history: { push } }) => {
           push('/');
           dispatch({
             type: 'CHANGE_CURRENT_PAGE',
-            page
+            page,
           });
         }}
       >
@@ -41,7 +42,7 @@ const Nav = ({ isResumeShown, history: { push } }) => {
           push(page);
           dispatch({
             type: 'CHANGE_CURRENT_PAGE',
-            page
+            page,
           });
         }}
         to={`/${page.toLocaleLowerCase()}`}
@@ -55,7 +56,14 @@ const Nav = ({ isResumeShown, history: { push } }) => {
   return (
     <Fragment>
       <div className="nav-wrapper">
-        <span className="header-wordmark" />
+        <span
+          className="header-wordmark"
+          style={{
+            backgroundImage: `url(/assets/images/${
+              is.mobile() ? 'Wordmark-Blue' : 'Wordmark-horizontal-blue'
+            }.png`,
+          }}
+        />
         <div className="nav-desktop">
           {<span className="nav-bar">{navBar}</span>}
         </div>
@@ -67,7 +75,7 @@ const Nav = ({ isResumeShown, history: { push } }) => {
           onClick={() =>
             dispatch({
               type: 'TOGGLE_MENU',
-              isMenuShown: !isMenuShown
+              isMenuShown: !isMenuShown,
             })
           }
         >
@@ -92,5 +100,5 @@ Nav.propTypes = {
   history: PropTypes.object,
   currentPage: PropTypes.string,
   onRedirect: PropTypes.func,
-  isResumeShown: PropTypes.bool
+  isResumeShown: PropTypes.bool,
 };

@@ -9,8 +9,6 @@ pdfjs.GlobalWorkerOptions.workerSrc =
 import Loader from '../Loader/Loader';
 import copyContent from '../../copy/copyContent';
 import svgPaths from '../../copy/svgPaths';
-import resume from '../../images/Hugh-Hartigan-Resume.pdf';
-import profileImage from '../../images/Meh-LinkedIn.png';
 
 import './About.scss';
 
@@ -40,7 +38,7 @@ const About = () => {
         <div className="top-container">
           <img
             className="profile-image"
-            src={profileImage}
+            src="/assets/images/Meh-LinkedIn.png"
             alt="Hugh-Hartigan-software-developer"
           />
           <div className="profile-description-container">
@@ -126,7 +124,7 @@ const About = () => {
         <div className="resume-dialog">
           <a
             className="download-icon"
-            href={resume}
+            href="/assets/images/Hugh-Hartigan-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -145,7 +143,7 @@ const About = () => {
           </div>
 
           <Document
-            file={resume}
+            file="/assets/images/Hugh-Hartigan-Resume.pdf"
             className={resumeClassNames}
             loading={<Loader />}
           >

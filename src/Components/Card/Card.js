@@ -24,7 +24,7 @@ const Card = ({
       <div className="Card">
         <img
           className="project-image"
-          src={require(`../../images/${image}.jpg`)}
+          src={`/assets/images/${image}.jpg`}
           alt={image}
         />
         <span className="title-wrapper">
@@ -86,7 +86,7 @@ const Card = ({
       <div className="Card">
         <img
           className="blog-image"
-          src={require(`../../images/${image}.jpg`)}
+          src={`/assets/images/${image}.jpg`}
           alt={image}
         />
 

@@ -5,12 +5,10 @@
   align-self: stretch;
   display: flex;
   justify-content: space-between;
-  min-height: 63.5px;
 }
 
 .header-wordmark {
   @include horizontalWordmarkLogo;
-  background-image: url('../../images/Wordmark-horizontal-blue.png');
 }
 
 .nav-bar,
@@ -53,7 +51,7 @@
 @media screen and (max-width: 480px) {
   .header-wordmark {
     @include verticalWordmarkLogo;
-    background-image: url('../../images/Wordmark-Blue.png');
+    // background-image: url('/public/assets/images/Wordmark-Blue.png');
   }
   .nav-wrapper {
     width: 100%;
