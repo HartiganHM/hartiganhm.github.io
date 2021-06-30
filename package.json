@@ -6,7 +6,7 @@
   "scripts": {
     "build": "react-scripts build",
     "clean": "rm -rf node_modules package-lock.json && yarn install",
-    "deploy": "gh-pages -b master -d build",
+    "deploy": "gh-pages -b main -d build",
     "eject": "react-scripts eject",
     "eslint": "./node_modules/eslint/bin/eslint.js ./src/**/*.js",
     "predeploy": "npm run build",
