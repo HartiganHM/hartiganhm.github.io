@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import { Document, Page, pdfjs } from 'react-pdf';
 import is from 'is_js';
 
-pdfjs.GlobalWorkerOptions.workerSrc =
-  `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 import Loader from '../Loader/Loader';
 import copyContent from '../../copy/copyContent';
@@ -29,11 +28,16 @@ const About = () => {
 
   const resumeClassNames = classNames({
     resume: true,
-    desktop: is.desktop()
+    desktop: is.desktop(),
   });
 
   return (
-    <div className="About">
+    <div
+      className={classNames({
+        About: true,
+        'resume-shown': isResumeShown,
+      })}
+    >
       <div className="info-container">
         <div className="top-container">
           <img

@@ -6,6 +6,9 @@
   flex-direction: column;
   color: $neutral-dark;
   width: 1600px;
+  &.resume-shown {
+    overflow: hidden;
+  }
 }
 .info-container {
   align-self: stretch;
@@ -93,6 +96,7 @@
   align-items: center;
   justify-content: center;
   overflow: scroll;
+  z-index: 5;
 }
 .resume {
   position: relative;
