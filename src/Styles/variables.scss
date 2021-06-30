@@ -1,14 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-//Typography
+
+// Typography
 $main-font: 'Open Sans', Arial, sans-serif;
-//Colors
-$accent-color-dark: rgb(77, 114, 152);
-$accent-color-light: rgb(49, 159, 217);
+
+// Colors
+$brand-dark: rgb(77, 114, 152);
+$accent-color-light: #319fd9;
 $accent-color-extra-light: rgb(236, 246, 251);
 $neutral-dark: rgb(60, 64, 66);
 $neutral-light: rgb(125, 133, 137);
 $snow: rgb(249, 249, 249);
-//Borders
 
-// Box Styling
-
+// Brand colors
+$brand-white: hsl(201, 68%, 95%);
+$brand-xx-light: hsl(200, 67%, 87%);
+$brand-x-light: hsl(200, 68%, 78%);
+$brand-light: hsl(201, 68%, 69%);
+$brand-medium: hsl(200, 68%, 60%);
+$brand-color: hsl(201, 69%, 52%);
+$brand-hover: hsl(201, 64%, 47%);
+$brand-active: hsl(200, 63%, 43%);
+$brand-dark: hsl(201, 64%, 33%);
+$brand-x-dark: hsl(200, 64%, 24%);
+$brand-xx-dark: hsl(201, 62%, 15%);
+$brand-black: hsl(200, 60%, 5%);
