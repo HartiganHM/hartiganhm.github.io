@@ -19,7 +19,6 @@
   display: flex;
 }
 .profile-image {
-  @include height(50);
   @include width(40);
   border-radius: 0.25rem;
 }
@@ -66,11 +65,14 @@
   @include width(10);
   @include padding(1);
   fill: $neutral-dark;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease-in-out;
   &:hover {
     fill: $accent-color-light;
     transform: translate(0, -3px);
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
+    + .icon-text {
+      color: $accent-color-light;
+    }
   }
 }
 .icon-text {
@@ -78,6 +80,7 @@
   @include padding(1);
   color: $neutral-dark;
   text-align: center;
+  transition: 0.3s ease-in-out;
 }
 .resume-dialog {
   position: absolute;
@@ -205,7 +208,6 @@
   }
   .profile-image {
     width: 310px;
-    height: 387.5px;
   }
   .profile-description-container {
     width: 310px;
