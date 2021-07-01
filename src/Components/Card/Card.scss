@@ -45,7 +45,9 @@
   &__button-wrapper {
     position: absolute;
     display: flex;
+    width: 100%;
     padding: 1rem;
+    box-sizing: border-box;
   }
   &__button {
     @include button;
@@ -129,8 +131,7 @@
 
 @media screen and (max-width: 694px) {
   .card {
-    &__logo-container,
-    &__gradient {
+    &__logo-container {
       height: 2rem;
     }
     &__logo {
