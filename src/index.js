@@ -7,7 +7,8 @@ import './index.css';
 
 const initialState = {
   currentPage: '',
-  isMenuShown: false
+  isMenuShown: false,
+  isResumeShown: false,
 };
 
 const reducer = (state, action) => {
@@ -23,6 +24,12 @@ const reducer = (state, action) => {
     return {
       ...state,
       isMenuShown: action.isMenuShown
+    };
+  }
+  case 'TOGGLE_RESUME': {
+    return {
+      ...state,
+      isResumeShown: action.isResumeShown,
     };
   }
   default:

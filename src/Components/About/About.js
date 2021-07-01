@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CircleLoader } from '@f-design/component-library';
 import classNames from 'classnames';
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -7,6 +7,7 @@ import is from 'is_js';
 pdfjs.GlobalWorkerOptions.workerSrc =
   `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
+import { useStateValue } from '../StateProvider/StateProvider';
 import copyContent from '../../copy/copyContent';
 import svgPaths from '../../copy/svgPaths';
 
@@ -23,7 +24,7 @@ const getResumeSize = () => {
 };
 
 const About = () => {
-  const [isResumeShown, handleToggleResume] = useState(false);
+  const [{ isResumeShown }, dispatch] = useStateValue();
 
   const { about } = copyContent;
 
@@ -66,7 +67,10 @@ const About = () => {
             <button
               onClick={() => {
                 document.querySelector('.App').scrollTop = 0;
-                handleToggleResume(true);
+                dispatch({
+                  type: 'TOGGLE_RESUME',
+                  isResumeShown: !isResumeShown,
+                });
               }}
               className="icon-wrapper"
             >
@@ -142,7 +146,15 @@ const About = () => {
             <span className="download-line" />
           </a>
 
-          <div className="close-icon" onClick={() => handleToggleResume(false)}>
+          <div
+            className="close-icon"
+            onClick={() =>
+              dispatch({
+                type: 'TOGGLE_RESUME',
+                isResumeShown: !isResumeShown,
+              })
+            }
+          >
             <span className="close-icon-line one" />
             <span className="close-icon-line two" />
           </div>
