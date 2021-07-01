@@ -90,7 +90,7 @@ const Nav = ({ history: { push } }) => {
       {is.mobile() && (
         <div className="nav-mobile">
           <div className={navMenuClasses}>
-            {<span className="nav-bar nav-bar-mobile">{navBar}</span>}
+            {<span className="nav-bar-mobile">{navBar}</span>}
           </div>
         </div>
       )}
