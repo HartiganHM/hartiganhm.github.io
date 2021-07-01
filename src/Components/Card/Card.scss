@@ -1,135 +1,141 @@
 @import '../../Styles/main.scss';
 
-.Card {
+.card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: $accent-color-extra-light;
   color: $neutral-dark;
-  .project-image {
-    align-self: center;
-    @include width(156);
-    margin-bottom: 20px;
-    border-radius: 0.25rem;
-  }
-  .blog-image {
-    @include width(155.5);
-    margin-bottom: 20px;
-  }
-  .title-wrapper {
+  overflow: hidden;
+  &__logo-container {
     display: flex;
-    align-items: center;
-    .view-details {
-      @include buttonAlternate;
-      @include width(10);
-      @include minWidth(10);
-      @include margin(1);
-      &:hover {
-        @include buttonHoverAlternate;
-      }
-    }
-  }
-  .content-container {
-    height: 0;
-    max-height: 0;
-    @include padding(1);
+    justify-content: flex-end;
+    height: 5rem;
+    width: 100%;
+    background-color: $brand-xx-dark;
     overflow: hidden;
-    -webkit-transition: 0.5s;
-    -o-transition: 0.5s;
-    transition: 0.5s;
-    opacity: 0;
-    &.show {
-      height: initial;
-      max-height: initial;
-      padding-bottom: 50px;
-      opacity: 1;
-    }
-    .description-box,
-    .area-of-focus-box,
-    .tech-stack-box {
-      display: flex;
-      flex-direction: column;
-      .description-header,
-      .area-of-focus-header,
-      .tech-stack-header {
-        margin: 0;
-        font-size: 1.2rem;
-        text-decoration: underline;
-      }
-      .description,
-      .area-of-focus,
-      .tech-stack {
-        @include padding(1);
-      }
-    }
-    .button-wrapper {
-      display: flex;
-      @include padding(1);
-      .button {
-        margin-right: 10px;
-        @include buttonAlternate;
-        &:hover {
-          @include buttonHoverAlternate;
-        }
-      }
-    }
   }
-  .url {
+  &__logo {
+    position: absolute;
+    height: 15rem;
+    z-index: 2;
+  }
+  &__image {
+    align-self: center;
+    width: 100%;
+  }
+  &__gradient {
+    background: linear-gradient(180deg, $brand-xx-dark, rgba(0, 0, 0, 0));
+    height: 5rem;
+    width: 100%;
+  }
+  &__content-container {
+    overflow: hidden;
+    padding: 1rem 1rem 0.5rem;
+  }
+  &__content {
     display: flex;
     flex-direction: column;
-    color: $neutral-dark;
-    text-decoration: none;
-    transition: 0.2s color ease-in-out;
+    max-width: 700px;
+    margin: 1rem auto;
+    padding: 0.75rem;
+    padding-bottom: 0;
+  }
+  &__button-wrapper {
+    position: absolute;
+    display: flex;
+    padding: 1rem;
+  }
+  &__button {
+    @include button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
-      color: $brand-color;
+      @include buttonHover;
+      transform: translate(0, -3px);
     }
   }
-  .title {
+  &__new-window-icon {
+    margin-left: 0.25rem;
+    font-size: 1.125rem;
+  }
+  &__accordion {
+    > button {
+      background-color: $brand-xx-dark;
+      color: $white;
+      box-shadow: #0f2d3e 0.25rem 0 0 inset;
+    }
+    &-nested-fwd-component-library {
+      > button {
+        background-color: $brand-x-dark;
+      }
+    }
+    &-nested-spirit {
+      > button {
+        background-color: $spirit-dark;
+      }
+    }
+    &-nested-our-planet {
+      > button {
+        background-color: $our-planet-dark;
+      }
+    }
+    &-nested-palette-picker {
+      > button {
+        background-color: $palette-picker-dark;
+      }
+    }
+    &-nested-swapi {
+      > button {
+        background-color: $swapi-dark;
+      }
+    }
+    &-nested-medium {
+      > button {
+        background-color: $medium-dark;
+      }
+    }
+  }
+  &__accordion-content {
+    background-color: $gray-02;
+    display: flex;
+    flex-direction: column;
+    &-spirit {
+      background-color: $spirit-main;
+    }
+    &-fwd-component-library {
+      background-color: $brand-color;
+    }
+    &-our-planet {
+      background-color: $our-planet-main;
+    }
+    &-palette-picker {
+      background-color: $palette-picker-main;
+    }
+    &-swapi {
+      background-color: $swapi-main;
+    }
+    &-medium {
+      background-color: $medium-main;
+    }
+  }
+  &__title {
     font-size: 2.4rem;
   }
 }
 
-@media screen and (max-width: 1634px) {
-  .Card .project-image {
-    @include width(124);
-  }
-  .Card .blog-image {
-    @include width(123.5);
-  }
-}
-
-@media screen and (max-width: 1334px) {
-  .Card .project-image {
-    @include width(92);
-  }
-  .Card .blog-image {
-    @include width(91.5);
-  }
-}
-
-@media screen and (max-width: 1014px) {
-  .Card .project-image {
-    @include width(60);
-  }
-  .Card .blog-image {
-    @include width(59.5);
-  }
-}
-
 @media screen and (max-width: 694px) {
-  .Card {
-    .project-image {
-      width: 300px;
+  .card {
+    &__logo-container,
+    &__gradient {
+      height: 2rem;
     }
-    .blog-image {
-      align-self: center;
-      width: 300px;
+    &__logo {
+      height: 6rem;
     }
-    .title-wrapper {
-      flex-direction: column;
-    }
-    .title {
-      font-size: 1.8rem;
-      margin: 0;
+    &__button-wrapper {
+      justify-content: center;
     }
   }
 }
