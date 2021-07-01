@@ -5,11 +5,9 @@
   display: flex;
   justify-content: space-between;
 }
-
 .header-wordmark {
   @include horizontalWordmarkLogo;
 }
-
 .nav-bar,
 .nav-mobile,
 .nav-desktop {
@@ -29,9 +27,68 @@
     pointer-events: none;
   }
 }
-
 .nav-mobile {
-  display: none;
+  display: flex;
+}
+.nav-icon {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 200;
+  &.close {
+    width: 40px;
+    height: 40px;
+  }
+}
+.burger-line {
+  height: 5px;
+  width: 40px;
+  margin: 3px;
+  background-color: $brand-color;
+  border-radius: 2px;
+  transition: all 0.25s;
+  &.close {
+    background-color: $snow;
+    position: absolute;
+    top: 10px;
+  }
+  &.one {
+    transform: rotate(135deg);
+  }
+  &.two {
+    transform: rotate(-135deg);
+  }
+  &.remove {
+    display: none;
+  }
+}
+.nav-menu {
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: -5px;
+  background: $brand-dark;
+  transition: all 0.5s;
+  z-index: 100;
+  &-hide {
+    right: -480px;
+    left: 480px;
+  }
+  &-show {
+    right: 0;
+    left: 0;
+  }
+}
+.nav-bar-mobile {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  width: 100%;
+  > .nav-link {
+    color: $snow !important;
+  }
 }
 
 @media screen and (max-width: 694px) {
@@ -50,76 +107,24 @@
 @media screen and (max-width: 480px) {
   .header-wordmark {
     @include verticalWordmarkLogo;
-    // background-image: url('/public/assets/images/Wordmark-Blue.png');
+    align-self: center;
+  }
+  .nav-desktop {
+    align-self: unset;
   }
   .nav-wrapper {
     width: 100%;
     min-height: 10rem;
     margin: 0;
-    align-items: center;
   }
-  .nav-desktop {
-    display: none;
-  }
-  .nav-mobile {
-    display: flex;
-  }
-  .nav-icon {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    z-index: 3;
-    &.close {
-      width: 40px;
-      height: 40px;
-    }
-  }
-  .burger-line {
-    height: 5px;
-    width: 40px;
-    margin: 3px;
-    background-color: $brand-color;
-    border-radius: 2px;
-    transition: all 0.25s;
-    &.close {
-      background-color: $snow;
-      position: absolute;
-      top: 10px;
-    }
-    &.one {
-      transform: rotate(135deg);
-    }
-    &.two {
-      transform: rotate(-135deg);
-    }
-    &.remove {
-      display: none;
-    }
-  }
-  .nav-menu {
-    display: flex;
-    position: absolute;
-    top: 0;
-    bottom: -5px;
-    background: $brand-dark;
-    transition: all 0.5s;
-  }
-  .hide {
-    right: -480px;
-    left: 480px;
-  }
-  .show {
-    right: 0;
-    left: 0;
-  }
-  .nav-bar {
-    flex: 1;
-    flex-direction: column;
+  .nav-bar-desktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 100%;
   }
   .nav-link {
+    box-sizing: border-box;
     width: 100% !important;
-    color: $snow !important;
   }
 }
