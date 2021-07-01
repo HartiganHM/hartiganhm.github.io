@@ -82,10 +82,11 @@
   }
 }
 .nav-bar-mobile {
+  align-self: center;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
-  width: 100%;
+  width: 100% !important;
   > .nav-link {
     color: $snow !important;
   }
