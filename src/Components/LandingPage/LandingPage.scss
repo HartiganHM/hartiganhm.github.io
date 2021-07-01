@@ -16,8 +16,9 @@
     }
   }
   .nav-bar {
-    align-self: center;
     display: flex;
+    align-self: center;
+    justify-content: center;
     .nav-link-home {
       @include button;
       text-transform: capitalize;
