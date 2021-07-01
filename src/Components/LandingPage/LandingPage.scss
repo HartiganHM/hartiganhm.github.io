@@ -1,5 +1,4 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import '../../Styles/main.scss';
 
 .LandingPage {
   flex: 1;
@@ -12,7 +11,6 @@
     @include height(30);
     margin: 0 75px;
     background: {
-      image: url('../../images/Wordmark.png');
       size: contain;
       repeat: no-repeat;
     }

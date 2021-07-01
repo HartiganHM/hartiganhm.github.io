@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CircleLoader } from '@f-design/component-library';
 import classNames from 'classnames';
 import { Document, Page, pdfjs } from 'react-pdf';
 import is from 'is_js';
@@ -6,11 +7,8 @@ import is from 'is_js';
 pdfjs.GlobalWorkerOptions.workerSrc =
   `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-import Loader from '../Loader/Loader';
 import copyContent from '../../copy/copyContent';
 import svgPaths from '../../copy/svgPaths';
-import resume from '../../images/Hugh-Hartigan-Resume.pdf';
-import profileImage from '../../images/Meh-LinkedIn.png';
 
 import './About.scss';
 
@@ -31,16 +29,21 @@ const About = () => {
 
   const resumeClassNames = classNames({
     resume: true,
-    desktop: is.desktop()
+    desktop: is.desktop(),
   });
 
   return (
-    <div className="About">
+    <div
+      className={classNames({
+        About: true,
+        'resume-shown': isResumeShown,
+      })}
+    >
       <div className="info-container">
         <div className="top-container">
           <img
             className="profile-image"
-            src={profileImage}
+            src="/assets/images/Meh-LinkedIn.png"
             alt="Hugh-Hartigan-software-developer"
           />
           <div className="profile-description-container">
@@ -126,7 +129,7 @@ const About = () => {
         <div className="resume-dialog">
           <a
             className="download-icon"
-            href={resume}
+            href="/assets/images/Hugh-Hartigan-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -145,9 +148,9 @@ const About = () => {
           </div>
 
           <Document
-            file={resume}
+            file="/assets/images/Hugh-Hartigan-Resume.pdf"
             className={resumeClassNames}
-            loading={<Loader />}
+            loading={<CircleLoader />}
           >
             <Page pageNumber={1} width={getResumeSize()} />
           </Document>

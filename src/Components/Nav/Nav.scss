@@ -1,16 +1,13 @@
-@import '../../Styles/variables.scss';
-@import '../../Styles/mixins.scss';
+@import '../../Styles/main.scss';
 
 .nav-wrapper {
   align-self: stretch;
   display: flex;
   justify-content: space-between;
-  min-height: 63.5px;
 }
 
 .header-wordmark {
   @include horizontalWordmarkLogo;
-  background-image: url('../../images/Wordmark-horizontal-blue.png');
 }
 
 .nav-bar,
@@ -53,7 +50,7 @@
 @media screen and (max-width: 480px) {
   .header-wordmark {
     @include verticalWordmarkLogo;
-    background-image: url('../../images/Wordmark-Blue.png');
+    // background-image: url('/public/assets/images/Wordmark-Blue.png');
   }
   .nav-wrapper {
     width: 100%;
@@ -83,7 +80,7 @@
     height: 5px;
     width: 40px;
     margin: 3px;
-    background-color: $accent-color-light;
+    background-color: $brand-color;
     border-radius: 2px;
     transition: all 0.25s;
     &.close {
@@ -106,7 +103,7 @@
     position: absolute;
     top: 0;
     bottom: -5px;
-    background: $accent-color-dark;
+    background: $brand-dark;
     transition: all 0.5s;
   }
   .hide {

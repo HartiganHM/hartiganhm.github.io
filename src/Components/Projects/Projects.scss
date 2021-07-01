@@ -1,5 +1,5 @@
-@import '../../styles/mixins.scss';
-@import '../../styles/variables.scss';
+@import '../../Styles/main.scss';
+
 .Projects {
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   color: $neutral-dark;
   .card-container {
     @include margin(1);
-    background-color: $accent-color-light;
+    background-color: $brand-color;
   }
 }
 

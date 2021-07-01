@@ -12,10 +12,15 @@ const LandingPage = ({ history: { push } }) => {
 
   return (
     <div className="LandingPage">
-      <span className="wordmark" />
+      <span
+        className="wordmark"
+        style={{
+          backgroundImage: 'url(/assets/images/Wordmark.png',
+        }}
+      />
 
       <div className="nav-bar">
-        {pages.map(page => (
+        {pages.map((page) => (
           <NavLink
             key={page}
             className="nav-link-home"
@@ -24,7 +29,7 @@ const LandingPage = ({ history: { push } }) => {
               push(page);
               dispatch({
                 type: 'CHANGE_CURRENT_PAGE',
-                page
+                page,
               });
             }}
           >
@@ -40,5 +45,5 @@ export default LandingPage;
 
 LandingPage.propTypes = {
   onRedirect: func.isRequired,
-  history: object.isRequired
+  history: object.isRequired,
 };

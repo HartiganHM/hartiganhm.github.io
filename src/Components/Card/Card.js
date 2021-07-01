@@ -1,133 +1,125 @@
 import React, { useState } from 'react';
 import { object } from 'prop-types';
+import { Accordion } from '@f-design/component-library';
 
 import './Card.scss';
 
 const Card = ({
   cardData: {
     image,
+    logo,
     title,
     description,
     description2,
     url,
+    name,
     areaOfFocus,
     areaOfFocus2,
     techStack,
     gitHub,
-    liveLink
-  }
+    liveLink,
+  },
 }) => {
-  const [currentClass, handleToggleDetails] = useState('hidden');
+  const [isExpanded, handleToggleExpanded] = useState(false);
 
-  if (gitHub) {
-    return (
-      <div className="Card">
+  const renderNewWindowIcon = () => (
+    <span className="material-icons card__new-window-icon">open_in_new</span>
+  );
+
+  return (
+    <div className="card">
+      <div
+        className="card__logo-container"
+        onClick={() => handleToggleExpanded(!isExpanded)}
+      >
+        <img className="card__logo" src={`/assets/images/${logo}`} alt={logo} />
+      </div>
+
+      <Accordion
+        className="card__accordion"
+        contentClassName={`card__accordion-content card__accordion-content-${name}`}
+        expanded={isExpanded}
+        title={title}
+      >
+        <div className="card__gradient" />
+
         <img
-          className="project-image"
-          src={require(`../../images/${image}.jpg`)}
+          className="card__image"
+          src={`/assets/images/${image}.jpg`}
           alt={image}
         />
-        <span className="title-wrapper">
-          <h2 className="title">{title}</h2>
 
-          <span
-            className="view-details"
-            onClick={() =>
-              handleToggleDetails(currentClass === 'hidden' ? 'show' : 'hidden')
-            }
-          >
-            {currentClass === 'hidden' ? 'View Details' : 'Hide Details'}
-          </span>
-        </span>
-
-        <div className={currentClass + ' content-container'}>
-          <div className="description-box">
-            <h3 className="description-header">Description</h3>
-            <p className="description">{description}</p>
-            {description2 && <p className="description">{description2}</p>}
-          </div>
-
-          <div className="area-of-focus-box">
-            <h3 className="area-of-focus-header">My Area of Focus</h3>
-            <p className="area-of-focus">{areaOfFocus}</p>
-            {areaOfFocus2 && <p className="area-of-focus">{areaOfFocus2}</p>}
-          </div>
-
-          <div className="tech-stack-box">
-            <h3 className="tech-stack-header">Tech Stack</h3>
-            <p className="tech-stack">{techStack}</p>
-          </div>
-
-          <span className="button-wrapper">
-            {liveLink && (
-              <a
-                href={liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button"
-              >
-                Launch
-              </a>
-            )}
+        <span className="card__button-wrapper">
+          {liveLink && (
+            <a
+              href={liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card__button"
+            >
+              View {renderNewWindowIcon()}
+            </a>
+          )}
+          {gitHub && (
             <a
               href={gitHub}
               target="_blank"
               rel="noopener noreferrer"
-              className="button"
+              className="card__button"
             >
-              GitHub
+              GitHub {renderNewWindowIcon()}
             </a>
-          </span>
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="Card">
-        <img
-          className="blog-image"
-          src={require(`../../images/${image}.jpg`)}
-          alt={image}
-        />
-
-        <span className="title-wrapper">
-          <h2 className="title">{title}</h2>
-
-          <span
-            className="view-details"
-            onClick={() =>
-              handleToggleDetails(currentClass === 'hidden' ? 'show' : 'hidden')
-            }
-          >
-            {currentClass === 'hidden' ? 'View Details' : 'Hide Details'}
-          </span>
-        </span>
-
-        <div className={currentClass + ' content-container'}>
-          <div className="description-box">
-            <h3 className="description-header">Description</h3>
-
-            <p className="description">{description}</p>
-          </div>
-
-          <span className="button-wrapper">
+          )}
+          {url && (
             <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="button"
+              className="card__button"
             >
-              Read
+              Read {renderNewWindowIcon()}
             </a>
-          </span>
+          )}
+        </span>
+
+        <div className="card__content-container">
+          <Accordion
+            className={`card__accordion card__accordion-nested-${name}`}
+            title="Description"
+            contentClassName="card__accordion-content"
+          >
+            <p className="card__content">{description}</p>
+            {description2 && <p className="card__content">{description2}</p>}
+          </Accordion>
+
+          {areaOfFocus && (
+            <Accordion
+              className={`card__accordion card__accordion-nested-${name}`}
+              title="Focus"
+              contentClassName="card__accordion-content"
+            >
+              <p className="card__content">{areaOfFocus}</p>
+              {areaOfFocus2 && <p className="card__content">{areaOfFocus2}</p>}
+            </Accordion>
+          )}
+
+          {techStack && (
+            <Accordion
+              className={`card__accordion card__accordion-nested-${name}`}
+              title="Tech Stack"
+              contentClassName="card__accordion-content"
+            >
+              <p className="card__content">{techStack}</p>
+            </Accordion>
+          )}
         </div>
-      </div>
-    );
-  }
+      </Accordion>
+    </div>
+  );
 };
 
 export default Card;
 
 Card.propTypes = {
-  cardData: object
+  cardData: object,
 };
