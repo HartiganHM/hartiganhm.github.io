@@ -64,6 +64,8 @@
     font-size: 1.125rem;
   }
   &__accordion {
+    position: relative;
+    top: -1px;
     > button {
       background-color: $brand-xx-dark;
       color: $white;
