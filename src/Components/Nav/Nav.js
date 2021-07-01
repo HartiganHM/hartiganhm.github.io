@@ -7,15 +7,15 @@ import is from 'is_js';
 import { useStateValue } from '../StateProvider/StateProvider';
 import './Nav.scss';
 
-const Nav = ({ isResumeShown, history: { push } }) => {
-  const [{ currentPage, isMenuShown }, dispatch] = useStateValue();
+const Nav = ({ history: { push } }) => {
+  const [{ currentPage, isMenuShown, isResumeShown }, dispatch] = useStateValue();
 
   const pages = ['home', 'about', 'projects', 'blogs'];
 
   const navMenuClasses = classNames({
     'nav-menu': true,
-    show: isMenuShown,
-    hide: !isMenuShown,
+    'nav-menu-show': isMenuShown,
+    'nav-menu-hide': !isMenuShown,
   });
 
   const navBar = pages.map((page, index) =>
@@ -64,12 +64,14 @@ const Nav = ({ isResumeShown, history: { push } }) => {
             }.png`,
           }}
         />
-        <div className="nav-desktop">
-          {<span className="nav-bar">{navBar}</span>}
-        </div>
+        {!is.mobile() && (
+          <div className="nav-desktop">
+            {<span className="nav-bar nav-bar-desktop">{navBar}</span>}
+          </div>
+        )}
       </div>
 
-      {!isResumeShown && (
+      {is.mobile() && !isResumeShown && (
         <div
           className={`nav-icon ${isMenuShown ? 'close' : ''}`}
           onClick={() =>
@@ -85,11 +87,13 @@ const Nav = ({ isResumeShown, history: { push } }) => {
         </div>
       )}
 
-      <div className="nav-mobile">
-        <div className={navMenuClasses}>
-          {<span className="nav-bar">{navBar}</span>}
+      {is.mobile() && (
+        <div className="nav-mobile">
+          <div className={navMenuClasses}>
+            {<span className="nav-bar nav-bar-mobile">{navBar}</span>}
+          </div>
         </div>
-      </div>
+      )}
     </Fragment>
   );
 };
